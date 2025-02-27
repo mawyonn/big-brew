@@ -1,21 +1,188 @@
----
-import Layout from '../layouts/Layout.astro';
-import ContextAlert from '../components/ContextAlert.astro';
-import Markdown from '../components/Markdown.astro';
 
-const explainer = `
-An Astro website can go way beyond static pages - on the right platform.
 
-Netlify supports not only [Streaming SSR](https://docs.astro.build/en/guides/server-side-rendering/#html-streaming) and fast [Edge Middleware](https://docs.astro.build/en/guides/middleware/), but also [on-demand revalidation](https://www.netlify.com/blog/cache-tags-and-purge-api-on-netlify/) and [stale-while-revalidate](https://www.netlify.com/blog/swr-and-fine-grained-cache-control/). 
-Any page or data can be rebuilt only when needed, without site visitors ever getting a performance hit.
-`;
----
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
 
-<Layout title="Welcome to Astro.">
-    <ContextAlert class="mb-4" />
-    <h1 class="mb-10">Netlify Platform Starter for Astro</h1>
-    <Markdown content={explainer} class="text-lg mb-10" />
-    <p class="mb-8">
-        <a href="https://docs.netlify.com/frameworks/astro/" class="btn btn-lg btn-primary sm:btn-wide">Read the Docs</a>
-    </p>
-</Layout>
+    <!-- Webfont -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@qpokychuk/gilroy@1.0.2/index.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/webfont/stylesheet.css">
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+                
+                
+    <style>
+        /* Remove default margin and padding */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Gilroy heavy', sans-serif;
+        }
+
+        /* Set margin for body to 0 */
+        body {
+            margin: 0;
+            font-family: 'Gilroy heavy', sans-serif;
+            
+        }
+         .hover\:text-orange-200:hover { color: #bc6e19; }
+        .bg-cream { background-color: #FFF8E7; }
+        .text-brown { color: #4A2C20; }
+        .bg-brown { background-color: #4A2C20; }
+        .text-amber-500 { color: #bc6e19; }
+        .bg-orange-500 { background-color: #D17A22; }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <!-- Navbar Container -->
+    <nav class="bg-[#3a280f] text-white shadow-lg fixed w-full z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="flex justify-between items-center h-16">
+            <!-- Logo Section -->
+            <a href="/" class="flex items-center">
+              <img src="/images/logo.png" alt="My Logo" class="h-10 mr-2">
+            </a>
+      
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex space-x-6">
+              <a href="/" class="text-white hover:text-amber-600">Home</a>
+              <a href="/products" class="text-white hover:text-amber-600">Products</a>
+              <a href="/franchisee" class="text-white hover:text-amber-600">Be a Franchisee</a>
+              <a href="/contact" class="text-white hover:text-amber-600">Contact Us</a>
+            </div>
+      
+            <!-- Mobile Menu Button -->
+            <button class="md:hidden mobile-menu-button">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M4 6h16M4 12h16M4 18h16"></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </nav>
+      
+      <!-- Mobile Menu (Hidden by default) -->
+      <div
+        class="mobile-menu overflow-hidden bg-[#3a280f] text-white shadow-lg fixed top-16 left-0 w-full z-40 max-h-0 transition-[max-height] duration-500 ease-in-out">
+        <div class="p-4">
+          <nav class="flex flex-col space-y-4">
+            <a href="/" class="text-xl hover:text-amber-600">Home</a>
+            <a href="/products" class="text-xl hover:text-amber-600">Products</a>
+            <a href="/franchisee" class="text-xl hover:text-amber-600">Be a Franchisee</a>
+            <a href="/contact" class="text-xl hover:text-amber-600">Contact Us</a>
+          </nav>
+        </div>
+      </div>
+      
+      <script>
+        // Select elements
+        const mobileMenuButton = document.querySelector('.mobile-menu-button');
+        const mobileMenu = document.querySelector('.mobile-menu');
+      
+        // Toggle mobile menu
+        mobileMenuButton.addEventListener('click', () => {
+          if (mobileMenu.style.maxHeight === '0px' || !mobileMenu.style.maxHeight) {
+            mobileMenu.style.maxHeight = '40vh';
+          } else {
+            mobileMenu.style.maxHeight = '0px';
+          }
+        });
+      </script>
+
+
+       <!-- Hero Section -->
+<section class="relative bg-cream flex justify-center items-center min-h-screen px-6 py-16">
+    <!-- Content Section -->
+    <div class="relative z-10 flex flex-col lg:flex-row items-center gap-12 w-full max-w-6xl">
+        <!-- Kiosk Image -->
+        <div class="relative w-full max-w-lg group">
+            <img src="/images/3d.png" alt="BigBrew Kiosk" 
+                class="w-full object-cover transition-transform duration-500 ease-in-out transform group-hover:rotate-3 group-hover:scale-105">
+            <div class="absolute inset-0 bg-gradient-to-b from-transparent to-orange-100 opacity-0 rounded-lg transition-opacity duration-500"></div>
+        </div>
+            
+            <!-- Text Content -->
+            <div class="text-center lg:text-left space-y-6">
+               <h1 class="text-5xl font-bold" style="font-family: 'Gilroy heavy', sans-serif; color: #bc6e19;">
+    READY TO SIP INTO YOUR<br>FUTURE?
+</h1>
+                <p class="text-xl font-semibold text-black" style="font-family: 'Gilroy heavy', sans-serif;">BREW SUCCESS WITH BIGBREW.</p>
+               <div class="flex flex-col sm:flex-row justify-center lg:justify-start gap-6 mt-8">
+                <!-- Button: Be A Franchisee -->
+<a href="/comingsoon" class="inline-block">
+    <button 
+        class="bg-[#bc6e19] text-white px-8 py-4 rounded-lg text-lg font-semibold transition-transform duration-300 transform hover:scale-110 hover:bg-[#3a280f]">
+        Be A Franchisee
+    </button>
+</a>
+
+<!-- Button: Read Reviews -->
+<a href="/comingsoon" class="inline-block">
+    <button 
+        class="bg-[#bc6e19] text-white px-8 py-4 rounded-lg text-lg font-semibold transition-transform duration-300 transform hover:scale-110 hover:bg-[#3a280f]">
+        Read Reviews
+    </button>
+</a>
+
+            </div>
+            </div>
+        </div>
+    </section>
+
+<!-- Footer Section -->
+<footer class="bg-[#593c17] text-white py-8">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 flex flex-col lg:flex-row justify-between items-center">
+        <!-- Logo and Brand Info -->
+        <div class="flex items-center space-x-3">
+            <img src="/images/logo.png" alt="BigBrew Logo" class="h-10">
+        </div>
+
+        <!-- Navigation Links -->
+      <div class="flex flex-wrap justify-center gap-6 mt-6 lg:mt-0">
+    <a href="#" class="hover:underline">Home</a>
+    <a href="/products" class="hover:underline">Our Products</a>
+    <a href="/franchisee" class="hover:underline">Be A Franchisee</a>
+    <a href="/contact" class="hover:underline">Contact Us</a>
+</div>
+
+
+        <!-- Social Media Icons -->
+        <div class="flex space-x-4 mt-6 lg:mt-0">
+            <a href="https://www.facebook.com/bigbrew.main" aria-label="Facebook" class="hover:text-gray-300">
+                <img src="/images/facebook.png" alt="Facebook" class="h-6" style="filter: brightness(0) invert(1);">
+            </a>
+            <a href="https://www.instagram.com/bigbrew.main" aria-label="Instagram" class="hover:text-gray-300">
+                <img src="/images/instagram.png" alt="Instagram" class="h-6" style="filter: brightness(0) invert(1);">
+            </a>
+            <a href="https://www.tiktok.com/@bigbrewmain" aria-label="Tiktok" class="hover:text-gray-300">
+                <img src="/images/tiktok.png" alt="Tiktok" class="h-6" style="filter: brightness(0) invert(1);">
+            </a>
+        </div>
+    </div>
+
+    <!-- Copyright Section -->
+    <div class="text-center text-sm text-gray-300 mt-8">
+        <p>©2025 All Rights Reserved. Bigbrew Food and Beverages Inc.</p>
+    </div>
+</footer>
+
+        <!-- JavaScript for Mobile Toggle -->
+        <script>
+            const menuButton = document.querySelector('.mobile-menu-button');
+            const mobileMenu = document.querySelector('.mobile-menu');
+    
+            menuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        </script>
+</body>
+</html>
+
+
